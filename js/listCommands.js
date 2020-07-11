@@ -1,16 +1,5 @@
-let run = async () => {
-  const data = await fetch("../commands.json").then((data) => data.json());
-  console.log(data);
-
-  data.commands.forEach((command) => {
-    document
-      .getElementById("accordion")
-      .insertAdjacentHTML("beforeend", generateSkill(command));
-  });
-};
-
-let generateSkill = (command) => {
-  return `
+const generateSkill = (command) =>
+  `
     <div class="accordion-card">
       <div class="accordion-card-header">
         ${command.name}
@@ -42,6 +31,15 @@ let generateSkill = (command) => {
       </div>
     </div>
     `;
-};
 
-run();
+const loadCommands = async () => {
+  const { commands } = await fetch("../commands.json").then((data) =>
+    data.json()
+  );
+
+  const accordion = document.getElementById("accordion");
+
+  commands.forEach((command) =>
+    accordion.insertAdjacentHTML("beforeend", generateSkill(command))
+  );
+};

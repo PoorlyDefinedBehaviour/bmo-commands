@@ -1,0 +1,1 @@
+loadCommands().then(setupAccordion);

@@ -1,0 +1,11 @@
+{
+  "commands": [
+    {
+      "name": "Ping",
+      "description": "Mostrar a latência do cliente.",
+      "usage": "ping",
+      "aliases": "p, latencia",
+      "gifPath": "content/commands/ping.gif"
+    }
+  ]
+}
